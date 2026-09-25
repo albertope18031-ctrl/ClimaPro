@@ -1,6 +1,6 @@
 import React from 'react';
 import { Phone, MapPin, Clock, ShieldCheck } from 'lucide-react';
-import logoImg from '../assets/logo-climapro.jpg';
+import ClimaProLogo from './ClimaProLogo';
 
 export default function Footer() {
   return (
@@ -9,11 +9,9 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 pb-10 border-b border-[#232D42]">
           
           <div className="md:col-span-2 space-y-4">
-            <img 
-              src={logoImg} 
-              alt="ClimaPro Climatización & Refrigeración" 
-              className="h-14 w-auto brightness-200 contrast-200 invert object-contain"
-            />
+            <a href="#" className="inline-block group">
+              <ClimaProLogo className="h-10 sm:h-12 w-auto" />
+            </a>
             <p className="text-slate-400 text-sm max-w-sm leading-relaxed">
               Empresa líder en climatización residencial, comercial e industrial en Hermosillo y alrededores. Solución profesional a fallas de flujo, enfriamiento, malos olores y fugas de agua.
             </p>

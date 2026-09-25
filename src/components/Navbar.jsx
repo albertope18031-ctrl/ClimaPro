@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, MessageCircle, Menu, X, Zap } from 'lucide-react';
-import logoImg from '../assets/logo-climapro.jpg';
+import ClimaProLogo from './ClimaProLogo';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,12 +10,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
         {/* LOGO */}
-        <a href="#" className="flex items-center gap-3 group">
-          <img 
-            src={logoImg} 
-            alt="ClimaPro Climatización & Refrigeración" 
-            className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105 duration-300"
-          />
+        <a href="#" className="flex items-center group">
+          <ClimaProLogo className="h-10 sm:h-12 w-auto" />
         </a>
 
         {/* STATUS "TÉCNICOS EN RUTA HOY" */}
