@@ -4,10 +4,19 @@
 
 @layer base {
   html {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background-color: #0B0F17;
     color: #F8FAFC;
   }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Barlow', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+.font-tech {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  letter-spacing: -0.01em;
 }
 
 .hero-gradient {

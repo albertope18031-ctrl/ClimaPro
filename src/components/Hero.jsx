@@ -22,36 +22,36 @@ export default function Hero({ onSelectSymptom }) {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#141B28] text-[#FFA336] text-xs sm:text-sm font-bold border border-[#232D42] shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#141B28] text-[#FFA336] text-xs sm:text-sm font-bold font-tech border border-[#232D42] shadow-sm tracking-wide">
               <span className="w-2 h-2 rounded-full bg-[#FF6B00] animate-ping"></span>
-              <span>Especialistas en Climatización en Hermosillo</span>
+              <span>ESPECIALISTAS TÉCNICOS EN HERMOSILLO (+45°C)</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-heading tracking-tight text-white leading-[1.05] uppercase">
               ¿Tu aire acondicionado <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] via-[#FFA336] to-[#FF6B00]">
                 falló con el calor
               </span> de Hermosillo?
             </h1>
             
-            <p className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              El calor de Sonora no perdona. Si tu equipo <strong className="text-white">no echa aire, no enfría, huele a humedad o chorrea agua</strong>, lo dejamos congelando como nuevo hoy mismo con <span className="text-[#FF6B00] font-bold">tarifa base de $400</span> y 90 días de garantía por escrito.
+            <p className="text-base sm:text-lg lg:text-xl font-sans text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+              El calor extremo de Sonora no perdona. Si tu equipo <strong className="text-white font-semibold">no echa aire, no enfría, huele a humedad o chorrea agua</strong>, lo dejamos congelando como nuevo hoy mismo con <span className="text-[#FF6B00] font-bold font-tech">tarifa base de $400 MXN</span> y <span className="font-tech font-semibold text-white">90 días de garantía</span> por escrito.
             </p>
 
             {/* BOTONES PRINCIPALES */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <a 
                 href="#diagnostico" 
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-[#FF6B00] via-[#FF6B00] to-[#FFA336] text-white font-bold text-base shadow-lg shadow-[#FF6B00]/25 hover:shadow-[#FF6B00]/40 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-[#FF6B00] via-[#FF6B00] to-[#FFA336] text-white font-black font-heading uppercase tracking-wider text-base shadow-lg shadow-[#FF6B00]/25 hover:shadow-[#FF6B00]/40 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
               >
-                <span>🩺 Diagnosticar Falla y Cotizar</span>
+                <span>Diagnosticar Falla y Cotizar</span>
                 <ArrowDown className="w-4 h-4" />
               </a>
               <a 
                 href="#agendar" 
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#141B28] text-white font-bold text-base border-2 border-[#232D42] hover:border-[#FF6B00] hover:bg-[#1B2436] transition flex items-center justify-center gap-2 shadow-sm"
+                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#141B28] text-white font-bold font-heading uppercase tracking-wider text-base border-2 border-[#232D42] hover:border-[#FF6B00] hover:bg-[#1B2436] transition flex items-center justify-center gap-2 shadow-sm"
               >
-                <span>⚡ Agendar Visita ($400 Base)</span>
+                <span>Agendar Visita <span className="font-tech text-[#FFA336]">($400 Base)</span></span>
               </a>
             </div>
 
@@ -62,8 +62,8 @@ export default function Hero({ onSelectSymptom }) {
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-white">Técnicos Certificados</div>
-                  <div className="text-[10px] text-slate-400">Hermosillo y Zonas</div>
+                  <div className="text-xs font-bold font-heading uppercase text-white tracking-wide">Técnicos Certificados</div>
+                  <div className="text-[11px] font-sans text-slate-400">Hermosillo y Zonas</div>
                 </div>
               </div>
               <div className="flex items-center gap-2.5">
@@ -71,8 +71,8 @@ export default function Hero({ onSelectSymptom }) {
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-white">90 Días Garantía</div>
-                  <div className="text-[10px] text-slate-400">Por escrito sin costo</div>
+                  <div className="text-xs font-bold font-heading uppercase text-white tracking-wide"><span className="font-tech">90 DÍAS</span> GARANTÍA</div>
+                  <div className="text-[11px] font-sans text-slate-400">Por escrito sin costo</div>
                 </div>
               </div>
               <div className="flex items-center gap-2.5">
@@ -80,8 +80,8 @@ export default function Hero({ onSelectSymptom }) {
                   <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-white">Cero Desastres</div>
-                  <div className="text-[10px] text-slate-400">Fundas colectoras</div>
+                  <div className="text-xs font-bold font-heading uppercase text-white tracking-wide">Cero Desastres</div>
+                  <div className="text-[11px] font-sans text-slate-400">Fundas colectoras</div>
                 </div>
               </div>
             </div>
@@ -104,17 +104,17 @@ export default function Hero({ onSelectSymptom }) {
                     <Snowflake className="w-6 h-6 text-[#38BDF8]" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-bold text-[#FFA336] uppercase tracking-wider">¿Qué le pasa a tu aire?</span>
-                    <h3 className="font-extrabold text-white text-lg">Selector de Síntoma Rápido</h3>
+                    <span className="text-[11px] font-bold font-tech text-[#FFA336] uppercase tracking-wider">¿QUÉ LE PASA A TU AIRE?</span>
+                    <h3 className="font-extrabold font-heading uppercase tracking-wide text-white text-lg">Selector Rápido</h3>
                   </div>
                 </div>
-                <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-[#22C55E]/15 text-[#22C55E] border border-[#22C55E]/30">
-                  ● Turnos hoy en HMO
+                <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold font-tech bg-[#22C55E]/15 text-[#22C55E] border border-[#22C55E]/30 tracking-wide">
+                  ● TURNOS HOY HMO
                 </span>
               </div>
 
               <div className="mt-5 space-y-3">
-                <p className="text-xs text-slate-400">Toca tu falla para autocompletar tu cita en 1 clic:</p>
+                <p className="text-xs font-sans text-slate-400">Toca tu síntoma para diagnóstico técnico inmediato:</p>
                 
                 <div className="grid grid-cols-2 gap-2.5 text-xs">
                   {quickSymptoms.map((s, idx) => {
@@ -129,8 +129,8 @@ export default function Hero({ onSelectSymptom }) {
                           <Icon className="w-4 h-4" />
                         </div>
                         <div>
-                          <strong className="block text-white font-bold">{s.label}</strong>
-                          <span className="text-slate-400 text-[10px]">{s.sub}</span>
+                          <strong className="block text-white font-bold font-heading tracking-wide uppercase text-xs">{s.label}</strong>
+                          <span className="text-slate-400 text-[10px] font-sans">{s.sub}</span>
                         </div>
                       </button>
                     );
@@ -140,7 +140,7 @@ export default function Hero({ onSelectSymptom }) {
                 <div className="pt-2">
                   <a 
                     href="#agendar" 
-                    className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#FF6B00] to-[#FFA336] hover:from-[#E65D00] hover:to-[#FF6B00] text-white font-bold text-xs uppercase tracking-wider text-center block transition shadow-lg shadow-[#FF6B00]/25"
+                    className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#FF6B00] to-[#FFA336] hover:from-[#E65D00] hover:to-[#FF6B00] text-white font-black font-heading uppercase tracking-wider text-xs text-center block transition shadow-lg shadow-[#FF6B00]/25"
                   >
                     Continuar al Agendador de Citas →
                   </a>
@@ -148,8 +148,8 @@ export default function Hero({ onSelectSymptom }) {
               </div>
 
               <div className="mt-4 pt-4 border-t border-[#232D42] flex items-center justify-between text-xs text-slate-400">
-                <span className="font-medium">⭐️ 4.9/5 en servicios verificados</span>
-                <span className="text-[#FF6B00] font-bold">Tarifa Base $400 MXN</span>
+                <span className="font-tech font-bold text-slate-300">★ 4.9/5 VERIFICADO</span>
+                <span className="text-[#FF6B00] font-bold font-tech tracking-wider">TARIFA $400 MXN</span>
               </div>
             </div>
           </motion.div>

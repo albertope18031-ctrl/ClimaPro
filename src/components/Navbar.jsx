@@ -6,7 +6,7 @@ export default function Navbar({ onOpenBooking }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-[#0B0F17]/95 backdrop-blur-md border-b border-[#232D42] shadow-sm transition-all">
+    <header className="sticky top-0 z-40 bg-[#0B0F17]/95 backdrop-blur-md border-b border-[#232D42] shadow-sm transition-all font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
         {/* LOGO */}
@@ -19,12 +19,15 @@ export default function Navbar({ onOpenBooking }) {
         </a>
 
         {/* NAVEGACIÓN DESKTOP */}
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-300">
-          <a href="#diagnostico" className="hover:text-[#FF6B00] transition">Diagnóstico de Fallas</a>
-          <a href="#tarifa" className="hover:text-[#FF6B00] transition">Tarifa Base $400</a>
-          <a href="#cobertura" className="hover:text-[#FF6B00] transition">Hermosillo & Zonas</a>
-          <a href="#garantia" className="hover:text-[#FF6B00] transition">Garantía 90 Días</a>
-          <a href="#testimonios" className="hover:text-[#FF6B00] transition">Testimonios</a>
+        <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold font-heading tracking-wide text-slate-300">
+          <a href="#diagnostico" className="hover:text-[#FF6B00] transition">DIAGNÓSTICO DE FALLAS</a>
+          <a href="#tarifa" className="hover:text-[#FF6B00] transition flex items-center gap-1.5">
+            <span>TARIFA BASE</span>
+            <span className="font-tech text-xs bg-[#FF6B00]/20 text-[#FFA336] px-1.5 py-0.5 rounded border border-[#FF6B00]/40">$400</span>
+          </a>
+          <a href="#cobertura" className="hover:text-[#FF6B00] transition">HERMOSILLO & ZONAS</a>
+          <a href="#garantia" className="hover:text-[#FF6B00] transition">GARANTÍA 90 DÍAS</a>
+          <a href="#testimonios" className="hover:text-[#FF6B00] transition">TESTIMONIOS</a>
         </nav>
 
         {/* BOTONES CTA */}
@@ -32,7 +35,7 @@ export default function Navbar({ onOpenBooking }) {
           <a
             href="#agendar"
             onClick={onOpenBooking}
-            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#FF6B00] via-[#FF6B00] to-[#FFA336] hover:from-[#E65D00] hover:to-[#FF6B00] shadow-lg shadow-[#FF6B00]/25 transition-all transform hover:-translate-y-0.5"
+            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold font-heading uppercase text-sm tracking-wider text-white bg-gradient-to-r from-[#FF6B00] via-[#FF6B00] to-[#FFA336] hover:from-[#E65D00] hover:to-[#FF6B00] shadow-lg shadow-[#FF6B00]/25 transition-all transform hover:-translate-y-0.5"
           >
             <Calendar className="w-4 h-4" /> Agendar Cita
           </a>
@@ -59,40 +62,40 @@ export default function Navbar({ onOpenBooking }) {
 
       {/* MENÚ MÓVIL DESPLEGABLE */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0B0F17] border-b border-[#232D42] px-6 py-4 space-y-3">
+        <div className="lg:hidden bg-[#0B0F17] border-b border-[#232D42] px-6 py-4 space-y-3 font-heading font-bold text-sm tracking-wide">
           <a 
             href="#diagnostico" 
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-base font-medium text-slate-200 hover:text-[#FF6B00]"
+            className="block text-slate-200 hover:text-[#FF6B00]"
           >
-            Diagnóstico de Fallas
+            DIAGNÓSTICO DE FALLAS
           </a>
           <a 
             href="#tarifa" 
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-base font-medium text-slate-200 hover:text-[#FF6B00]"
+            className="block text-slate-200 hover:text-[#FF6B00]"
           >
-            Tarifa Base $400 MXN
+            TARIFA BASE $400 MXN
           </a>
           <a 
             href="#cobertura" 
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-base font-medium text-slate-200 hover:text-[#FF6B00]"
+            className="block text-slate-200 hover:text-[#FF6B00]"
           >
-            Cobertura Hermosillo
+            COBERTURA HERMOSILLO
           </a>
           <a 
             href="#garantia" 
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-base font-medium text-slate-200 hover:text-[#FF6B00]"
+            className="block text-slate-200 hover:text-[#FF6B00]"
           >
-            Garantía 90 Días
+            GARANTÍA 90 DÍAS
           </a>
           <div className="pt-2">
             <a
               href="#agendar"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#FF6B00] to-[#FFA336]"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold uppercase text-sm text-white bg-gradient-to-r from-[#FF6B00] to-[#FFA336]"
             >
               <Calendar className="w-4 h-4" /> Agendar Cita en Línea
             </a>

@@ -51,7 +51,9 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+        heading: ['"Barlow"', 'sans-serif'],
+        tech: ['"Space Grotesk"', 'monospace', 'sans-serif'],
       },
     },
   },
