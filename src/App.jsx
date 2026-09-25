@@ -30,7 +30,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-brand-500 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#0B0F17] text-slate-100 selection:bg-[#FF6B00] selection:text-white">
       {/* Top Banner de Urgencia en Hermosillo */}
       <TopBanner />
 

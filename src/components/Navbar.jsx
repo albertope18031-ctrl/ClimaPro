@@ -6,7 +6,7 @@ export default function Navbar({ onOpenBooking }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
+    <header className="sticky top-0 z-40 bg-[#0B0F17]/95 backdrop-blur-md border-b border-[#232D42] shadow-sm transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
         {/* LOGO */}
@@ -19,12 +19,12 @@ export default function Navbar({ onOpenBooking }) {
         </a>
 
         {/* NAVEGACIÓN DESKTOP */}
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-700">
-          <a href="#diagnostico" className="hover:text-brand-600 transition">Diagnóstico de Fallas</a>
-          <a href="#tarifa" className="hover:text-brand-600 transition">Tarifa Base $400</a>
-          <a href="#cobertura" className="hover:text-brand-600 transition">Hermosillo & Zonas</a>
-          <a href="#garantia" className="hover:text-brand-600 transition">Garantía 90 Días</a>
-          <a href="#testimonios" className="hover:text-brand-600 transition">Testimonios</a>
+        <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-300">
+          <a href="#diagnostico" className="hover:text-[#FF6B00] transition">Diagnóstico de Fallas</a>
+          <a href="#tarifa" className="hover:text-[#FF6B00] transition">Tarifa Base $400</a>
+          <a href="#cobertura" className="hover:text-[#FF6B00] transition">Hermosillo & Zonas</a>
+          <a href="#garantia" className="hover:text-[#FF6B00] transition">Garantía 90 Días</a>
+          <a href="#testimonios" className="hover:text-[#FF6B00] transition">Testimonios</a>
         </nav>
 
         {/* BOTONES CTA */}
@@ -32,7 +32,7 @@ export default function Navbar({ onOpenBooking }) {
           <a
             href="#agendar"
             onClick={onOpenBooking}
-            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-brand-600 via-brand-500 to-cyan-500 hover:from-brand-700 hover:to-cyan-600 shadow-md shadow-brand-500/25 transition-all transform hover:-translate-y-0.5"
+            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#FF6B00] via-[#FF6B00] to-[#FFA336] hover:from-[#E65D00] hover:to-[#FF6B00] shadow-lg shadow-[#FF6B00]/25 transition-all transform hover:-translate-y-0.5"
           >
             <Calendar className="w-4 h-4" /> Agendar Cita
           </a>
@@ -41,16 +41,16 @@ export default function Navbar({ onOpenBooking }) {
             href="https://wa.me/526624205643?text=Hola%20ClimaPro,%20quisiera%20solicitar%20servicio%20técnico%20para%20mi%20aire%20en%20Hermosillo"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center p-2.5 rounded-xl bg-emerald-50 text-emerald-600 hover:bg-emerald-100 border border-emerald-200 transition"
+            className="inline-flex items-center justify-center p-2.5 rounded-xl bg-[#141B28] text-[#22C55E] hover:bg-[#22C55E]/15 border border-[#232D42] hover:border-[#22C55E] transition"
             title="Enviar mensaje directo por WhatsApp"
           >
-            <MessageCircle className="w-6 h-6 fill-current text-emerald-500" />
+            <MessageCircle className="w-6 h-6 fill-current text-[#22C55E]" />
           </a>
 
           {/* Menú móvil toggler */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100"
+            className="lg:hidden p-2 rounded-xl text-slate-300 hover:bg-[#141B28]"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -59,32 +59,32 @@ export default function Navbar({ onOpenBooking }) {
 
       {/* MENÚ MÓVIL DESPLEGABLE */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3">
+        <div className="lg:hidden bg-[#0B0F17] border-b border-[#232D42] px-6 py-4 space-y-3">
           <a 
             href="#diagnostico" 
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-base font-medium text-slate-800 hover:text-brand-600"
+            className="block text-base font-medium text-slate-200 hover:text-[#FF6B00]"
           >
             Diagnóstico de Fallas
           </a>
           <a 
             href="#tarifa" 
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-base font-medium text-slate-800 hover:text-brand-600"
+            className="block text-base font-medium text-slate-200 hover:text-[#FF6B00]"
           >
             Tarifa Base $400 MXN
           </a>
           <a 
             href="#cobertura" 
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-base font-medium text-slate-800 hover:text-brand-600"
+            className="block text-base font-medium text-slate-200 hover:text-[#FF6B00]"
           >
             Cobertura Hermosillo
           </a>
           <a 
             href="#garantia" 
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-base font-medium text-slate-800 hover:text-brand-600"
+            className="block text-base font-medium text-slate-200 hover:text-[#FF6B00]"
           >
             Garantía 90 Días
           </a>
@@ -92,7 +92,7 @@ export default function Navbar({ onOpenBooking }) {
             <a
               href="#agendar"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm text-white bg-brand-600"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#FF6B00] to-[#FFA336]"
             >
               <Calendar className="w-4 h-4" /> Agendar Cita en Línea
             </a>
