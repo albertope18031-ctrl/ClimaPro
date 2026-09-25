@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Star, CheckCircle2, MapPin } from 'lucide-react';
 
 const testimonials = [
@@ -33,7 +34,13 @@ export default function Testimonials() {
     <section id="testimonios" className="py-20 bg-[#0B0F17] border-t border-[#232D42]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#141B28] text-[#22C55E] border border-[#232D42] text-xs font-bold font-tech uppercase tracking-widest mb-3">
             ★ RESEÑAS VERIFICADAS EN HERMOSILLO
           </span>
@@ -43,12 +50,17 @@ export default function Testimonials() {
           <p className="text-slate-300 font-sans text-base sm:text-lg mt-2">
             Vecinos y empresas de Hermosillo que recuperaron el frío en sus espacios con ClimaPro.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t, idx) => (
-            <div 
+            <motion.div 
               key={idx} 
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
               className="bg-[#141B28] p-7 rounded-3xl border-2 border-[#232D42] flex flex-col justify-between space-y-4 hover:border-[#FF6B00] transition shadow-sm font-sans"
             >
               <div className="space-y-3">
@@ -81,7 +93,7 @@ export default function Testimonials() {
                   <CheckCircle2 className="w-3 h-3 text-[#22C55E]" /> {t.equipment}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Droplets, Flame, Wind, Biohazard, ArrowRight, Wrench, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Droplets, Flame, Wind, Biohazard, AlertTriangle, CheckCircle2 } from 'lucide-react';
 
 export default function ProblemSolutionMatrix({ onSelectSolution }) {
   const matrixData = [
@@ -67,7 +68,13 @@ export default function ProblemSolutionMatrix({ onSelectSolution }) {
     <section id="soluciones" className="py-20 bg-[#0B0F17]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#141B28] text-[#FFA336] text-xs font-bold font-tech uppercase tracking-widest mb-3 border border-[#232D42]">
             TRANSPARENCIA TÉCNICA CLIMAPRO
           </div>
@@ -77,15 +84,20 @@ export default function ProblemSolutionMatrix({ onSelectSolution }) {
           <p className="text-slate-300 font-sans text-base sm:text-lg mt-2">
             No adivinamos ni inventamos fallas. Te explicamos exactamente qué ocurre y cómo lo solucionamos con herramientas de precisión.
           </p>
-        </div>
+        </motion.div>
 
         {/* COMPARADOR TÉCNICO INTERACTIVO */}
         <div className="grid lg:grid-cols-2 gap-6">
-          {matrixData.map((item) => {
+          {matrixData.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div 
+              <motion.div 
                 key={item.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className="bg-[#141B28] rounded-3xl p-6 sm:p-7 border-2 border-[#232D42] hover:border-[#FF6B00] transition-all card-hover-glow flex flex-col justify-between space-y-5"
               >
                 <div className="space-y-4">
@@ -131,14 +143,15 @@ export default function ProblemSolutionMatrix({ onSelectSolution }) {
 
                 {/* BOTÓN DE ACCIÓN DIRECTA */}
                 <div className="pt-2 border-t border-[#232D42]">
-                  <button
+                  <motion.button
+                    whileTap={{ scale: 0.98 }}
                     onClick={() => handleAction(item.problemName)}
                     className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#FF6B00] to-[#FFA336] hover:from-[#E65D00] hover:to-[#FF6B00] text-white font-black font-heading uppercase tracking-wider text-xs transition flex items-center justify-center gap-2 shadow-lg shadow-[#FF6B00]/25"
                   >
                     <span>{item.actionText}</span>
-                  </button>
+                  </motion.button>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

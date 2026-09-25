@@ -1,5 +1,6 @@
 import React from 'react';
-import { CheckCircle2, ShieldAlert, Award, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Award, Sparkles } from 'lucide-react';
 
 export default function ServiceChecklist() {
   const points = [
@@ -19,7 +20,13 @@ export default function ServiceChecklist() {
     <section id="checklist" className="py-20 bg-[#0B0F17] border-t border-[#232D42]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#141B28] text-[#FFA336] text-xs font-bold font-tech uppercase tracking-widest mb-3 border border-[#232D42]">
             <Award className="w-3.5 h-3.5 text-[#FF6B00]" /> RIGOR TÉCNICO INNEGOCIABLE
           </div>
@@ -29,16 +36,20 @@ export default function ServiceChecklist() {
           <p className="text-slate-300 font-sans text-base sm:text-lg mt-2">
             Esto es exactamente lo que revisa y ejecuta nuestro especialista en cada visita técnica por tu tarifa base de $400.
           </p>
-        </div>
+        </motion.div>
 
-        {/* GRID DE 10 PUNTOS */}
+        {/* GRID DE 10 PUNTOS CON ENTRADA ESCALONADA */}
         <div className="grid md:grid-cols-2 gap-4">
-          {points.map((pt) => (
-            <div 
+          {points.map((pt, idx) => (
+            <motion.div 
               key={pt.num}
+              initial={{ opacity: 0, x: idx % 2 === 0 ? -15 : 15 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.4, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
               className="p-4 sm:p-5 rounded-2xl bg-[#141B28] border border-[#232D42] hover:border-[#FF6B00] transition flex items-start gap-3.5 group"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#0B0F17] border border-[#232D42] group-hover:border-[#FF6B00] text-[#FF6B00] flex items-center justify-center font-tech font-black text-sm shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-[#0B0F17] border border-[#232D42] group-hover:border-[#FF6B00] text-[#FF6B00] flex items-center justify-center font-tech font-black text-sm shrink-0 transition-colors">
                 {pt.num}
               </div>
               <div className="space-y-1">
@@ -49,12 +60,18 @@ export default function ServiceChecklist() {
                   {pt.desc}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* PROTOCOLO CERO DESASTRES */}
-        <div className="mt-8 p-6 rounded-3xl bg-gradient-to-r from-[#141B28] via-[#1B2436] to-[#141B28] border-2 border-[#232D42] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-8 p-6 rounded-3xl bg-gradient-to-r from-[#141B28] via-[#1B2436] to-[#141B28] border-2 border-[#232D42] flex flex-col sm:flex-row items-center justify-between gap-4"
+        >
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-2xl bg-[#22C55E]/15 border border-[#22C55E]/30 text-[#22C55E] flex items-center justify-center shrink-0">
               <Sparkles className="w-6 h-6" />
@@ -73,11 +90,11 @@ export default function ServiceChecklist() {
             href="https://wa.me/526624205643?text=Hola%20ClimaPro,%20deseo%20agendar%20el%20servicio%20técnico%20de%2010%20puntos%20con%20tarifa%20de%20$400"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-[#FF6B00] to-[#FFA336] text-white font-heading font-black uppercase tracking-wider text-xs whitespace-nowrap shadow-lg shadow-[#FF6B00]/25 hover:from-[#E65D00] hover:to-[#FF6B00] transition"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-[#FF6B00] to-[#FFA336] text-white font-heading font-black uppercase tracking-wider text-xs whitespace-nowrap shadow-lg shadow-[#FF6B00]/25 hover:from-[#E65D00] hover:to-[#FF6B00] transition text-center"
           >
             Agendar Servicio de 10 Puntos ($400) →
           </a>
-        </div>
+        </motion.div>
 
       </div>
     </section>
