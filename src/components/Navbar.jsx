@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Calendar, MessageCircle, Menu, X } from 'lucide-react';
+import { Phone, MessageCircle, Menu, X, Zap } from 'lucide-react';
 import logoImg from '../assets/logo-climapro.jpg';
 
-export default function Navbar({ onOpenBooking }) {
+export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -14,92 +14,97 @@ export default function Navbar({ onOpenBooking }) {
           <img 
             src={logoImg} 
             alt="ClimaPro Climatización & Refrigeración" 
-            className="h-14 sm:h-16 w-auto object-contain transition-transform group-hover:scale-105 duration-300"
+            className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105 duration-300"
           />
         </a>
 
+        {/* STATUS "TÉCNICOS EN RUTA HOY" */}
+        <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#141B28] border border-[#232D42] text-xs font-tech">
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22C55E] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#22C55E]"></span>
+          </span>
+          <span className="text-slate-300 font-medium">TÉCNICOS ACTIVOS EN HERMOSILLO</span>
+          <span className="text-[#FFA336] font-bold">| HOY EN RUTA</span>
+        </div>
+
         {/* NAVEGACIÓN DESKTOP */}
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold font-heading tracking-wide text-slate-300">
-          <a href="#diagnostico" className="hover:text-[#FF6B00] transition">DIAGNÓSTICO DE FALLAS</a>
-          <a href="#tarifa" className="hover:text-[#FF6B00] transition flex items-center gap-1.5">
-            <span>TARIFA BASE</span>
-            <span className="font-tech text-xs bg-[#FF6B00]/20 text-[#FFA336] px-1.5 py-0.5 rounded border border-[#FF6B00]/40">$400</span>
-          </a>
-          <a href="#cobertura" className="hover:text-[#FF6B00] transition">HERMOSILLO & ZONAS</a>
-          <a href="#garantia" className="hover:text-[#FF6B00] transition">GARANTÍA 90 DÍAS</a>
-          <a href="#testimonios" className="hover:text-[#FF6B00] transition">TESTIMONIOS</a>
+        <nav className="hidden xl:flex items-center gap-6 text-xs font-semibold font-heading tracking-wide text-slate-300">
+          <a href="#soluciones" className="hover:text-[#FF6B00] transition">MATRIZ DE SOLUCIONES</a>
+          <a href="#garantias" className="hover:text-[#FF6B00] transition">GARANTÍAS</a>
+          <a href="#cobertura" className="hover:text-[#FF6B00] transition">RADAR DE COBERTURA</a>
+          <a href="#checklist" className="hover:text-[#FF6B00] transition">CHECKLIST 10 PTS</a>
         </nav>
 
-        {/* BOTONES CTA */}
+        {/* TELÉFONO DIRECTO & CTA WHATSAPP */}
         <div className="flex items-center gap-3">
-          <a
-            href="#agendar"
-            onClick={onOpenBooking}
-            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold font-heading uppercase text-sm tracking-wider text-white bg-gradient-to-r from-[#FF6B00] via-[#FF6B00] to-[#FFA336] hover:from-[#E65D00] hover:to-[#FF6B00] shadow-lg shadow-[#FF6B00]/25 transition-all transform hover:-translate-y-0.5"
+          <a 
+            href="tel:+526624205643" 
+            className="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#141B28] border border-[#232D42] hover:border-[#FF6B00] text-white text-xs font-tech font-bold transition tracking-wider"
           >
-            <Calendar className="w-4 h-4" /> Agendar Cita
+            <Phone className="w-3.5 h-3.5 text-[#FF6B00]" />
+            <span>662 420 5643</span>
           </a>
-          
+
           <a
-            href="https://wa.me/526624205643?text=Hola%20ClimaPro,%20quisiera%20solicitar%20servicio%20técnico%20para%20mi%20aire%20en%20Hermosillo"
+            href="https://wa.me/526624205643?text=Hola%20ClimaPro,%20necesito%20despachar%20un%20técnico%20con%20la%20tarifa%20base%20de%20$400"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center p-2.5 rounded-xl bg-[#141B28] text-[#22C55E] hover:bg-[#22C55E]/15 border border-[#232D42] hover:border-[#22C55E] transition"
-            title="Enviar mensaje directo por WhatsApp"
+            className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl font-bold font-heading uppercase text-xs sm:text-sm tracking-wider text-white bg-gradient-to-r from-[#FF6B00] via-[#FF6B00] to-[#FFA336] hover:from-[#E65D00] hover:to-[#FF6B00] shadow-lg shadow-[#FF6B00]/25 transition-all transform hover:-translate-y-0.5"
           >
-            <MessageCircle className="w-6 h-6 fill-current text-[#22C55E]" />
+            <Zap className="w-4 h-4" />
+            <span>Despachar Cita</span>
           </a>
 
           {/* Menú móvil toggler */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl text-slate-300 hover:bg-[#141B28]"
+            className="xl:hidden p-2 rounded-xl text-slate-300 hover:bg-[#141B28]"
+            aria-label="Abrir menú"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
-      {/* MENÚ MÓVIL DESPLEGABLE */}
+      {/* MENÚ MÓVIL */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0B0F17] border-b border-[#232D42] px-6 py-4 space-y-3 font-heading font-bold text-sm tracking-wide">
+        <div className="xl:hidden bg-[#0B0F17] border-b border-[#232D42] px-6 py-4 space-y-3 font-heading font-bold text-sm tracking-wide">
           <a 
-            href="#diagnostico" 
+            href="#soluciones" 
             onClick={() => setMobileMenuOpen(false)}
             className="block text-slate-200 hover:text-[#FF6B00]"
           >
-            DIAGNÓSTICO DE FALLAS
+            MATRIZ DE SOLUCIONES
           </a>
           <a 
-            href="#tarifa" 
+            href="#garantias" 
             onClick={() => setMobileMenuOpen(false)}
             className="block text-slate-200 hover:text-[#FF6B00]"
           >
-            TARIFA BASE $400 MXN
+            CERTIDUMBRE Y COSTES ($400 BASE)
           </a>
           <a 
             href="#cobertura" 
             onClick={() => setMobileMenuOpen(false)}
             className="block text-slate-200 hover:text-[#FF6B00]"
           >
-            COBERTURA HERMOSILLO
+            RADAR DE COBERTURA HERMOSILLO
           </a>
           <a 
-            href="#garantia" 
+            href="#checklist" 
             onClick={() => setMobileMenuOpen(false)}
             className="block text-slate-200 hover:text-[#FF6B00]"
           >
-            GARANTÍA 90 DÍAS
+            CHECKLIST DE 10 PUNTOS DE SERVICIO
           </a>
-          <div className="pt-2">
-            <a
-              href="#agendar"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold uppercase text-sm text-white bg-gradient-to-r from-[#FF6B00] to-[#FFA336]"
-            >
-              <Calendar className="w-4 h-4" /> Agendar Cita en Línea
-            </a>
-          </div>
+          <a 
+            href="#testimonios" 
+            onClick={() => setMobileMenuOpen(false)}
+            className="block text-slate-200 hover:text-[#FF6B00]"
+          >
+            OPINIONES POR COLONIA
+          </a>
         </div>
       )}
     </header>

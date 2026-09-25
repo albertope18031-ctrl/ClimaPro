@@ -1,73 +1,62 @@
 import React, { useState } from 'react';
-import TopBanner from './components/TopBanner';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import SymptomGrid from './components/SymptomGrid';
-import PricingCard from './components/PricingCard';
-import BookingWizard from './components/BookingWizard';
-import TrustSection from './components/TrustSection';
-import CoverageMap from './components/CoverageMap';
+import HeroSplit from './components/HeroSplit';
+import TrustBar from './components/TrustBar';
+import ProblemSolutionMatrix from './components/ProblemSolutionMatrix';
+import CoverageRadar from './components/CoverageRadar';
+import ServiceChecklist from './components/ServiceChecklist';
 import Testimonials from './components/Testimonials';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import MobileEmergencyDock from './components/MobileEmergencyDock';
 import Footer from './components/Footer';
 
 export default function App() {
-  const [selectedSymptom, setSelectedSymptom] = useState('No arroja mucho aire');
+  const [selectedProblem, setSelectedProblem] = useState('');
 
-  const handleSelectSymptom = (symptom) => {
-    setSelectedSymptom(symptom);
-    const element = document.getElementById('agendar');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleOpenBooking = () => {
-    const element = document.getElementById('agendar');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleSelectSolution = (problemName) => {
+    setSelectedProblem(problemName);
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0B0F17] text-slate-100 selection:bg-[#FF6B00] selection:text-white">
-      {/* Top Banner de Urgencia en Hermosillo */}
-      <TopBanner />
-
-      {/* Navbar con Logo y CTA */}
-      <Navbar onOpenBooking={handleOpenBooking} />
+    <div className="min-h-screen flex flex-col bg-[#0B0F17] text-slate-100 selection:bg-[#FF6B00] selection:text-white pb-16 md:pb-0">
+      
+      {/* 1. NAVBAR TÉCNICO */}
+      <Navbar />
 
       <main className="flex-grow">
-        {/* Hero Section con selector exprés de fallas */}
-        <Hero onSelectSymptom={handleSelectSymptom} />
-
-        {/* Módulo de Diagnóstico Interactivo para las 4 Fallas */}
-        <SymptomGrid onSelectSymptom={handleSelectSymptom} />
-
-        {/* Tarjeta de Tarifa Base Transparente $400 */}
-        <PricingCard onBookClick={handleOpenBooking} />
-
-        {/* Asistente de Agendamiento en 3 Pasos + Motor de WhatsApp */}
-        <BookingWizard 
-          selectedSymptom={selectedSymptom} 
-          onSymptomChange={setSelectedSymptom} 
+        {/* 2. HERO DIVIDIDO (SPLIT-SCREEN ABOVE-THE-FOLD) CON CONSOLA EXPRESS */}
+        <HeroSplit 
+          selectedProblem={selectedProblem} 
+          onProblemChange={setSelectedProblem} 
         />
 
-        {/* Garantías y Protocolo de Limpieza */}
-        <TrustSection />
+        {/* 3. CINTILLO FLOTANTE DE CERTIDUMBRE (TRUST BAR) */}
+        <TrustBar />
 
-        {/* Cobertura en Hermosillo y Alrededores */}
-        <CoverageMap />
+        {/* 4. MATRIZ DE PROBLEMA ➔ CAUSA ➔ SOLUCIÓN INMEDIATA */}
+        <ProblemSolutionMatrix onSelectSolution={handleSelectSolution} />
 
-        {/* Prueba Social / Testimonios de Clientes */}
+        {/* 5. RADAR DE COBERTURA & DISPONIBILIDAD POR COLONIA */}
+        <CoverageRadar />
+
+        {/* 6. ANATOMÍA DE NUESTRO SERVICIO (CHECKLIST DE 10 PUNTOS) */}
+        <ServiceChecklist />
+
+        {/* 7. PRUEBA SOCIAL LOCAL (RESEÑAS CON COLONIA Y PROBLEMA) */}
         <Testimonials />
       </main>
 
-      {/* Botón flotante de WhatsApp directo al 662 420 5643 */}
-      <FloatingWhatsApp />
+      {/* BOTÓN FLOTANTE DESKTOP */}
+      <div className="hidden md:block">
+        <FloatingWhatsApp />
+      </div>
 
-      {/* Footer corporativo */}
+      {/* 8. FOOTER TÉCNICO */}
       <Footer />
+
+      {/* 9. STICKY MOBILE EMERGENCY DOCK (BARRA FIJA INFERIOR MÓVIL) */}
+      <MobileEmergencyDock />
+
     </div>
   );
 }
